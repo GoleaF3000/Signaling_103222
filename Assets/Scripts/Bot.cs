@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Bot : MonoBehaviour
+{
+    [SerializeField] private float _speed;
+    [SerializeField] private Transform _home;
+
+    private Transform _target;
+    
+    public Transform Home => _home;    
+
+    void Start()
+    {
+        _target = _home;
+    }
+
+    private void Update()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
+    }
+
+    public Transform ReturnTarget()
+    {
+        return _target;
+    }
+
+    public float ReturnSpeed()
+    {
+        return _speed;
+    }
+
+    public void SetTarget(Transform target)
+    {
+        _target = target;
+    }
+}
