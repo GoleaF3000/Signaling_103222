@@ -6,65 +6,51 @@ public class Signaling : MonoBehaviour
 {
     [SerializeField] private AudioSource _audio;
     [SerializeField] private float _duration;
-
-    private bool _isVolumeUp = false;
-    private bool _isVolumeDown = false;
-    private bool _isUpdateTimer = false;
+    
     private float _runningTime;
-    private float volume = 0.0f;
+    private float _volume;
+    private float _targetVolume = 0.0f;
+    private float _minVolume = 0.0f;
+    private float _maxVolume = 1.0f;
 
-    public bool IsAlarmWorks { get; private set; }
-
-    private void Update()
+    private void Start()
     {
-        float minVolume = 0.0f;
-        float maxVolume = 1.0f;
+        _audio.volume = 0.0f;
+    }    
 
-        _runningTime += Time.deltaTime;
-        float volumeChange = _runningTime / _duration;
-
-        if (IsAlarmWorks)
-        {
-            IsAlarmWorks = true;
-            _isVolumeDown = false;
-            _isVolumeUp = true;
-        }
-        else
-        {
-            IsAlarmWorks = false;
-            _isVolumeUp = false;
-            _isVolumeDown = true;
-        }
-
-        if (_isUpdateTimer)
-        {
-            volume = _audio.volume;
-            _runningTime = 0;
-            _isUpdateTimer = false;
-        }
-
-        if (_isVolumeUp)
-        {
-            _audio.volume = Mathf.MoveTowards(volume, maxVolume, volumeChange);
-        }
-        else if (_isVolumeDown)
-        {
-            _audio.volume = Mathf.MoveTowards(volume, minVolume, volumeChange);
-        }
+    public void SetMaxVolume()
+    {
+        _targetVolume = _maxVolume;
     }
 
-    public void TurnOnAlarm()
+    public void SetMinVolume()
     {
-        IsAlarmWorks = true;
-    }
-
-    public void TurnOffAlarm()
-    {
-        IsAlarmWorks = false;
+        _targetVolume = _minVolume;
     }
 
     public void UpdateTimer()
     {
-        _isUpdateTimer = true;
+        _volume = _audio.volume;
+        _runningTime = 0;        
+    }
+
+    public void StartAdjustVolume()
+    {
+        StartCoroutine(AdjustVolume());
+    }
+
+    private IEnumerator AdjustVolume()
+    {
+        UpdateTimer();
+
+        while (_runningTime < _duration)
+        {
+            _runningTime += Time.deltaTime;
+            float volumeChange = _runningTime / _duration;
+
+            _audio.volume = Mathf.MoveTowards(_volume, _targetVolume, volumeChange);
+
+            yield return null;
+        }
     }
 }
