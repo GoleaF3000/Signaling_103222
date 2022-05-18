@@ -2726,7 +2726,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1495823352}
         m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
-        m_MethodName: TurnOnAlarm
+        m_MethodName: SetMaxVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2738,7 +2738,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1495823352}
         m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
-        m_MethodName: UpdateTimer
+        m_MethodName: StartAdjustVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2753,7 +2753,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1495823352}
         m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
-        m_MethodName: TurnOffAlarm
+        m_MethodName: SetMinVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2765,7 +2765,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1495823352}
         m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
-        m_MethodName: UpdateTimer
+        m_MethodName: StartAdjustVolume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
