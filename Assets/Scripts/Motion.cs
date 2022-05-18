@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bot : MonoBehaviour
+public class Motion : MonoBehaviour
 {
     [SerializeField] private float _speed;
     [SerializeField] private Transform _home;
@@ -11,7 +11,7 @@ public class Bot : MonoBehaviour
     
     public Transform Home => _home;    
 
-    void Start()
+    private void Start()
     {
         _target = _home;
     }
