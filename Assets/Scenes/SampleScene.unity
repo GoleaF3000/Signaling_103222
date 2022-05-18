@@ -1052,10 +1052,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a44c6c02d0c094fa260fb5303b9e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 3
   _home: {fileID: 205706856}
   _enemy: {fileID: 2068777169}
-  _signaling: {fileID: 1495823352}
 --- !u!1 &1028720920
 GameObject:
   m_ObjectHideFlags: 0
@@ -2721,7 +2720,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c5c7160f91e6074c8b6b2b70811ab63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _signaling: {fileID: 1495823352}
+  _knight: {fileID: 818136206}
+  _thiefEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1495823352}
+        m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
+        m_MethodName: TurnOnAlarm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1495823352}
+        m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
+        m_MethodName: UpdateTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _thiefOut:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1495823352}
+        m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
+        m_MethodName: TurnOffAlarm
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1495823352}
+        m_TargetAssemblyTypeName: Signaling, Assembly-CSharp
+        m_MethodName: UpdateTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &1166006869
 BoxCollider2D:
   m_ObjectHideFlags: 0

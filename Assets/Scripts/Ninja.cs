@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ninja : Bot
+public class Ninja : Motion
 {    
     [SerializeField] private Transform _chest;
 
