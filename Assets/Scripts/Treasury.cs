@@ -10,8 +10,8 @@ public class Treasury : MonoBehaviour
     [SerializeField] private UnityEvent _thiefOut;
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.GetComponent<Ninja>())
+    {        
+        if (collision.TryGetComponent(out Ninja ninja))
         {           
             _thiefEntered?.Invoke();            
             _knight.SetTarget(_knight.Enemy);
@@ -19,8 +19,8 @@ public class Treasury : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.GetComponent<Ninja>())
+    {        
+        if (collision.TryGetComponent(out Ninja ninja))
         {            
             _thiefOut?.Invoke();            
             _knight.SetTarget(_knight.Home);

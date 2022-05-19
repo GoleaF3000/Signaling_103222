@@ -18,17 +18,7 @@ public class Motion : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);
-    }
-
-    public Transform ReturnTarget()
-    {
-        return _target;
-    }
-
-    public float ReturnSpeed()
-    {
-        return _speed;
+        transform.position = Vector3.MoveTowards(transform.position, _target.position, _speed * Time.deltaTime);       
     }
 
     public void SetTarget(Transform target)
